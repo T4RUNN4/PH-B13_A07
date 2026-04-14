@@ -27,7 +27,7 @@ export default function HomePage() {
   });
 
   return (
-    <main className="p-40 bg-[#F8FAFC]">
+    <main className="py-20 md:py-32 px-6 md:px-20 bg-[#F8FAFC]">
       <Hero></Hero>
       <StatusContainer
         total={total}
