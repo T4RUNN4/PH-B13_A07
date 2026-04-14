@@ -1,7 +1,7 @@
 import { use } from "react";
-import FriendsContainer from "../components/unique/FriendsContainer";
-import Hero from "../components/unique/Hero";
-import StatusContainer from "../components/unique/StatusContainer";
+import FriendsContainer from "../components/unique/homeComponents/FriendsContainer";
+import Hero from "../components/unique/homeComponents/Hero";
+import StatusContainer from "../components/unique/homeComponents/StatusContainer";
 
 const friendsPromise = fetch("/friends.json").then((res) => res.json());
 
