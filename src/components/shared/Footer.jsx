@@ -48,7 +48,7 @@ export default function Footer() {
           </a>
         </div>
       </nav>
-      <div className="flex justify-between border-t border-[#FAFAFA]/50 py-8 px-52 w-full">
+      <div className="flex justify-between border-t border-[#FAFAFA]/50 pt-8 px-52 w-full">
         <p className="text-[#FAFAFA]/50">©{new Date().getFullYear()} KeenKeeper - All right reserved</p>
         <div className="text-[#FAFAFA]/50 flex gap-4">
           <p>Privacy Policy</p>
