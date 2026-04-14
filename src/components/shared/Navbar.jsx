@@ -3,6 +3,8 @@ import { Link } from "react-router";
 import { TabContext } from "../../context/CurrentTabContext";
 import { useContext } from "react";
 
+import Logo from "../../assets/logo.png"
+
 export default function Navbar() {
   const { currTab, setCurrTab } = useContext(TabContext);
 
@@ -10,7 +12,7 @@ export default function Navbar() {
     <div className="navbar bg-base-100 shadow-sm px-6 md:px-20 py-4 flex flex-col md:flex-row items-center justify-center md:justify-between gap-4">
       <div>
         <Link to="/" onClick={() => setCurrTab("home")} className="text-2xl font-semibold text-[#244D3F]">
-          <span className="text-[#1F2937] font-extrabold">Keen</span>Keeper
+          <img src={Logo} alt="KeenKeeper Logo" />
         </Link>
       </div>
       <div>
