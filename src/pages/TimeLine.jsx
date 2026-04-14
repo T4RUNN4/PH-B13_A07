@@ -2,11 +2,14 @@ import { useContext, useRef, useState } from "react";
 import HistoryCard from "../components/unique/timelineComponents/historyCard";
 import { TimelineContext } from "../context/TimeLineContext";
 import { CircleX } from "lucide-react";
+import { TabContext } from "../context/CurrentTabContext";
 
 export default function TimeLine() {
   const { currTimeLine } = useContext(TimelineContext);
+  const { setCurrTab } = useContext(TabContext)
   const [filter, setFilter] = useState("all");
 
+  setCurrTab("timeline")
   const dropdownRef = useRef(null);
   const handleSelect = (value) => {
     setFilter(value);

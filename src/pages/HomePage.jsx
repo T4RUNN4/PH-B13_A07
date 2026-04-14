@@ -1,12 +1,17 @@
-import { use } from "react";
+import { use, useContext } from "react";
 import FriendsContainer from "../components/unique/homeComponents/FriendsContainer";
 import Hero from "../components/unique/homeComponents/Hero";
 import StatusContainer from "../components/unique/homeComponents/StatusContainer";
+import { TabContext } from "../context/CurrentTabContext";
+
 
 const friendsPromise = fetch("/friends.json").then((res) => res.json());
 
 export default function HomePage() {
   const friends = use(friendsPromise);
+  const { setCurrTab } = useContext(TabContext);
+
+  setCurrTab("home");
   let total = 0,
     ontrack = 0,
     attention = 0,

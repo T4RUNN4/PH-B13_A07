@@ -32,10 +32,10 @@ export default function Navbar() {
             <History /> Timeline
           </Link>
         </button>
-        <button onClick={() => setCurrTab("status")}>
+        <button onClick={() => setCurrTab("stats")}>
           <Link
             to="/stats"
-            className={`btn font-semibold ${currTab === "status" ? "bg-green-800 text-white" : "bg-white border-0 drop-shadow-white text-[#64748B]"}`}
+            className={`btn font-semibold ${currTab === "stats" ? "bg-green-800 text-white" : "bg-white border-0 drop-shadow-white text-[#64748B]"}`}
           >
             <ChartSpline /> Stats
           </Link>
