@@ -9,7 +9,7 @@
     "tags": ["college", "close friend"],
     "bio": "Met in university. Love hiking together.",
     "goal": 10,
-    "next_due_date": "2026-04-10"
+    "next_due_date": "Apr 10, 2026"
   },
   {
     "id": 2,
@@ -21,7 +21,7 @@
     "tags": ["work", "designer"],
     "bio": "Colleague from my first internship.",
     "goal": 14,
-    "next_due_date": "2026-04-20"
+    "next_due_date": "Apr 20, 2026"
   },
   {
     "id": 3,
@@ -33,7 +33,7 @@
     "tags": ["gym", "fitness"],
     "bio": "Workout partner. Very consistent guy.",
     "goal": 14,
-    "next_due_date": "2026-04-15"
+    "next_due_date": "Apr 15, 2026"
   },
   {
     "id": 4,
@@ -45,7 +45,7 @@
     "tags": ["online", "developer"],
     "bio": "Met through an open-source project.",
     "goal": 15,
-    "next_due_date": "2026-04-05"
+    "next_due_date": "Apr 05, 2026"
   },
   {
     "id": 5,
@@ -57,7 +57,7 @@
     "tags": ["family", "cousin"],
     "bio": "Lives nearby. We meet often.",
     "goal": 7,
-    "next_due_date": "2026-04-19"
+    "next_due_date": "Apr 19, 2026"
   },
   {
     "id": 6,
@@ -68,8 +68,8 @@
     "status": "almost due",
     "tags": ["university", "study group"],
     "bio": "We used to study together before exams.",
-    "goal": 10,
-    "next_due_date": "2026-04-16"
+    "goal": 10, 
+    "next_due_date": "Apr 16, 2026"
   },
   {
     "id": 7,
@@ -81,7 +81,7 @@
     "tags": ["client", "freelance"],
     "bio": "Worked on a website project together.",
     "goal": 14,
-    "next_due_date": "2026-04-08"
+    "next_due_date": "Apr 08, 2026"
   },
   {
     "id": 8,
@@ -93,7 +93,7 @@
     "tags": ["school", "old friend"],
     "bio": "Childhood friend from school days.",
     "goal": 10,
-    "next_due_date": "2026-04-18"
+    "next_due_date": "Apr 18, 2026"
   },
   {
     "id": 9,
@@ -105,7 +105,7 @@
     "tags": ["startup", "network"],
     "bio": "Met at a startup networking event.",
     "goal": 12,
-    "next_due_date": "2026-04-15"
+    "next_due_date": "Apr 15, 2026"
   },
   {
     "id": 10,
@@ -117,6 +117,6 @@
     "tags": ["neighbor", "friendly"],
     "bio": "Lives next door. Very helpful person.",
     "goal": 7,
-    "next_due_date": "2026-04-21"
+    "next_due_date": "Apr 21, 2026"
   }
 ]

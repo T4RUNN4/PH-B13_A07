@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import TimeLine from "./pages/TimeLine";
 import Status from "./pages/Status";
 import TabProvider from "./context/CurrentTabContext";
+import FriendDetails from "./pages/FriendDetails";
 
 const rounter = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const rounter = createBrowserRouter([
         path: "/status",
         Component: Status,
       },
+      {
+        path: "/friend/:id",
+        Component: FriendDetails,
+      }
     ],
   },
 ]);

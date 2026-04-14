@@ -1,8 +1,10 @@
+import { Link } from "react-router";
+
 export default function FriendsPreview({ friend }) {
   const status = friend.status;
 
   return (
-    <div className="card bg-base-100 shadow-sm px-2 py-6 hover:cursor-pointer">
+    <Link to={`/friend/${friend.id}`} className="card bg-base-100 shadow-sm px-2 py-6 hover:cursor-pointer">
       <figure>
         <img
           src={friend.picture}
@@ -22,6 +24,6 @@ export default function FriendsPreview({ friend }) {
           {status.toUpperCase()}
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
