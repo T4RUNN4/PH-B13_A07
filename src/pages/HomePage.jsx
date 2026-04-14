@@ -17,7 +17,7 @@ export default function HomePage() {
 
     if (friend.status === "on-track") {
       ontrack++;
-    } else if (friend.status === "almost due") {
+    } else if (friend.status === "almost due" || friend.status === "overdue") {
       attention++;
     }
 
