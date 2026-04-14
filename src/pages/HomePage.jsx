@@ -35,7 +35,7 @@ export default function HomePage() {
         attention={attention}
         thisMonth={thisMonth}
       ></StatusContainer>
-      <div class="divider my-10"></div>
+      <div className="divider my-10"></div>
       <FriendsContainer friends={friends}></FriendsContainer>
     </main>
   );

@@ -23,19 +23,34 @@ export default function FriendDetails() {
 
   const { currTimeLine, setCurrTimeLine } = useContext(TimelineContext)
 
+  const getFormattedDate = () => {
+  const now = new Date();
+
+  return now.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric"
+  }).replace(",", "");
+};
+
   const handleCall = () => {
-    const newMessage = `${expectedFriend.name} is called`;
-    toast.success(newMessage)
+    const date = getFormattedDate();
+    const newMessage = ["Call", date, expectedFriend.name];
+    toast.success(`${expectedFriend.name} is called`)
     setCurrTimeLine([...currTimeLine, newMessage]);
   };
+
   const handleText = () => {
-    const newMessage = `${expectedFriend.name} is texted`;
-    toast.success(newMessage);
+    const date = getFormattedDate();
+    const newMessage = ["Text", date, expectedFriend.name];
+    toast.success(`${expectedFriend.name} is messaged`);
     setCurrTimeLine([...currTimeLine, newMessage]);
   };
+  
   const handleVideoCall = () => {
-    const newMessage = `${expectedFriend.name} is video called`;
-    toast.success(newMessage);
+    const date = getFormattedDate();
+    const newMessage = ["Video", date, expectedFriend.name];
+    toast.success(`${expectedFriend.name} is video called`);
     setCurrTimeLine([...currTimeLine, newMessage]);
   };
 
@@ -57,8 +72,8 @@ export default function FriendDetails() {
             {status.toUpperCase()}
           </div>
           <div className="flex gap-2">
-            {expectedFriend.tags.map((tag) => (
-              <div className="badge bg-[#CBFADB] text-[#244D3F] rounded-full font-medium text-xs mt-2 mb-3">
+            {expectedFriend.tags.map((tag, index) => (
+              <div key={index} className="badge bg-[#CBFADB] text-[#244D3F] rounded-full font-medium text-xs mt-2 mb-3">
                 {tag.toUpperCase()}
               </div>
             ))}
