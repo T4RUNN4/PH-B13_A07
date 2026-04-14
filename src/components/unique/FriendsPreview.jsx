@@ -2,7 +2,7 @@ export default function FriendsPreview({ friend }) {
   const status = friend.status;
 
   return (
-    <div className="card bg-base-100 shadow-sm p-6">
+    <div className="card bg-base-100 shadow-sm px-2 py-6 hover:cursor-pointer">
       <figure>
         <img
           src={friend.picture}
