@@ -3,19 +3,40 @@ import FriendsContainer from "../components/unique/FriendsContainer";
 import Hero from "../components/unique/Hero";
 import StatusContainer from "../components/unique/StatusContainer";
 
-const friendsPromise = fetch("/friends.json").then(res => res.json());
+const friendsPromise = fetch("/friends.json").then((res) => res.json());
 
 export default function HomePage() {
-    const friends = use(friendsPromise);
-    let total = 0, ontrack = 0, overdue = 0, thisMonth = 0;
+  const friends = use(friendsPromise);
+  let total = 0,
+    ontrack = 0,
+    attention = 0,
+    thisMonth = 0;
 
+  friends.forEach((friend) => {
+    total++;
 
-    return (
-        <main className="p-40 bg-[#F8FAFC]">
-            <Hero></Hero>
-            <StatusContainer></StatusContainer>
-            <div class="divider my-10"></div>
-            <FriendsContainer friends={friends}></FriendsContainer>
-        </main>
-    )
+    if (friend.status === "on-track") {
+      ontrack++;
+    } else if (friend.status === "almost due") {
+      attention++;
+    }
+
+    if (Number(friend.days_since_contact) < 31) {
+      thisMonth++;
+    }
+  });
+
+  return (
+    <main className="p-40 bg-[#F8FAFC]">
+      <Hero></Hero>
+      <StatusContainer
+        total={total}
+        ontrack={ontrack}
+        attention={attention}
+        thisMonth={thisMonth}
+      ></StatusContainer>
+      <div class="divider my-10"></div>
+      <FriendsContainer friends={friends}></FriendsContainer>
+    </main>
+  );
 }
