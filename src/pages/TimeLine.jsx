@@ -19,16 +19,16 @@ export default function TimeLine() {
       <details ref={dropdownRef} className="dropdown">
         <summary className="btn m-1">Filter Timeline</summary>
         <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-          <li>
+          <li className={`${filter === "all" ? "bg-green-800 text-white" : ""}`}>
             <a onClick={() => handleSelect("all")}>All</a>
           </li>
-          <li>
+          <li className={`${filter === "Call" ? "bg-green-800 text-white" : ""}`}>
             <a onClick={() => handleSelect("Call")}>Call</a>
           </li>
-          <li>
+          <li className={`${filter === "Video" ? "bg-green-800 text-white" : ""}`}>
             <a onClick={() => handleSelect("Video")}>Video Call</a>
           </li>
-          <li>
+          <li className={`${filter === "Text" ? "bg-green-800 text-white" : ""}`}>
             <a onClick={() => handleSelect("Text")}>Text</a>
           </li>
         </ul>
