@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { Link } from "react-router";
+import { TabContext } from "../../../context/CurrentTabContext"
 
 export default function FriendsPreview({ friend }) {
   const status = friend.status;
+  const { setCurrTab } = useContext(TabContext)
 
   return (
-    <Link to={`/friend/${friend.id}`} className="card bg-base-100 shadow-sm px-2 py-6 hover:cursor-pointer">
+    <Link to={`/friend/${friend.id}`} onClick={() => setCurrTab("none")} className="card bg-base-100 shadow-sm px-2 py-6 hover:cursor-pointer">
       <figure>
         <img
           src={friend.picture}
