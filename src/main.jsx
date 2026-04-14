@@ -11,6 +11,7 @@ import TabProvider from "./context/CurrentTabContext";
 import FriendDetails from "./pages/FriendDetails";
 import TimeLineProvider from "./context/TimeLineContext";
 import { ToastContainer } from "react-toastify";
+import Error from "./pages/Error";
 
 const rounter = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const rounter = createBrowserRouter([
         Component: FriendDetails,
       },
     ],
+  },
+  {
+    path: "*",
+    Component: Error,
   },
 ]);
 
