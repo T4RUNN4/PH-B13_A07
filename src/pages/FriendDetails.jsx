@@ -38,21 +38,21 @@ export default function FriendDetails() {
   const handleCall = () => {
     const date = getFormattedDate();
     const newMessage = ["Call", date, expectedFriend.name];
-    toast.success(`${expectedFriend.name} is called`);
+    toast.success(`Call with ${expectedFriend.name}`);
     setCurrTimeLine([...currTimeLine, newMessage]);
   };
 
   const handleText = () => {
     const date = getFormattedDate();
     const newMessage = ["Text", date, expectedFriend.name];
-    toast.success(`${expectedFriend.name} is messaged`);
+    toast.success(`Text with ${expectedFriend.name}`);
     setCurrTimeLine([...currTimeLine, newMessage]);
   };
 
   const handleVideoCall = () => {
     const date = getFormattedDate();
     const newMessage = ["Video", date, expectedFriend.name];
-    toast.success(`${expectedFriend.name} is video called`);
+    toast.success(`Video with ${expectedFriend.name}`);
     setCurrTimeLine([...currTimeLine, newMessage]);
   };
 

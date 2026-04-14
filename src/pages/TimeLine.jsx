@@ -15,6 +15,7 @@ export default function TimeLine() {
 
   return (
     <div className="py-10 px-6 md:px-20 bg-[#F8FAFC] flex flex-col gap-4">
+      <h1 className="text-3xl md:text-5xl font-bold mb-6 text-[#1F2937]">Timeline</h1>
       <details ref={dropdownRef} className="dropdown">
         <summary className="btn m-1">Filter Timeline</summary>
         <ul className="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
