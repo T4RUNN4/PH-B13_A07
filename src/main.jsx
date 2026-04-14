@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import MainLayout from "./layout/MainLayout";
 import HomePage from "./pages/HomePage";
 import TimeLine from "./pages/TimeLine";
-import Status from "./pages/Status";
+import Stats from "./pages/Stats";
 import TabProvider from "./context/CurrentTabContext";
 import FriendDetails from "./pages/FriendDetails";
 import TimeLineProvider from "./context/TimeLineContext";
@@ -26,8 +26,8 @@ const rounter = createBrowserRouter([
         Component: TimeLine,
       },
       {
-        path: "/status",
-        Component: Status,
+        path: "/stats",
+        Component: Stats,
       },
       {
         path: "/friend/:id",
