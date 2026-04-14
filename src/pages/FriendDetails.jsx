@@ -6,9 +6,11 @@ import {
   MessageSquareMore,
   Video,
 } from "lucide-react";
-import { use } from "react";
+import { use, useContext } from "react";
 import { useParams } from "react-router";
 import StatusCard from "../components/unique/homeComponents/StatusCard";
+import { TimelineContext } from "../context/TimeLineContext";
+import { toast } from "react-toastify";
 
 const friendsPromise = fetch("/friends.json").then((res) => res.json());
 
@@ -18,6 +20,24 @@ export default function FriendDetails() {
 
   const expectedFriend = friends.find((friend) => friend.id == id);
   const status = expectedFriend.status;
+
+  const { currTimeLine, setCurrTimeLine } = useContext(TimelineContext)
+
+  const handleCall = () => {
+    const newMessage = `${expectedFriend.name} is called`;
+    toast.success(newMessage)
+    setCurrTimeLine([...currTimeLine, newMessage]);
+  };
+  const handleText = () => {
+    const newMessage = `${expectedFriend.name} is texted`;
+    toast.success(newMessage);
+    setCurrTimeLine([...currTimeLine, newMessage]);
+  };
+  const handleVideoCall = () => {
+    const newMessage = `${expectedFriend.name} is video called`;
+    toast.success(newMessage);
+    setCurrTimeLine([...currTimeLine, newMessage]);
+  };
 
   return (
     <div className="grid grid-cols-3 py-10 px-6 md:px-20 bg-[#F8FAFC] gap-4">
@@ -95,13 +115,22 @@ export default function FriendDetails() {
           <h4 className="text-[#244D3F] font-medium text-xl">
             Quick Check-In
             <div className="grid grid-cols-3 gap-4 mt-4">
-              <button className="btn bg-[#f8fafc] h-28 text-xl flex flex-col gap-2 p-4">
+              <button
+                className="btn bg-[#f8fafc] h-28 text-xl flex flex-col gap-2 p-4"
+                onClick={handleCall}
+              >
                 <PhoneCall /> Call
               </button>
-              <button className="btn bg-[#f8fafc] h-28 text-xl flex flex-col gap-2 p-4">
+              <button
+                className="btn bg-[#f8fafc] h-28 text-xl flex flex-col gap-2 p-4"
+                onClick={handleText}
+              >
                 <MessageSquareMore /> Text
               </button>
-              <button className="btn bg-[#f8fafc] h-28 text-xl flex flex-col gap-2 p-4">
+              <button
+                className="btn bg-[#f8fafc] h-28 text-xl flex flex-col gap-2 p-4"
+                onClick={handleVideoCall}
+              >
                 <Video /> Video
               </button>
             </div>

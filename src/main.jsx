@@ -9,6 +9,8 @@ import TimeLine from "./pages/TimeLine";
 import Status from "./pages/Status";
 import TabProvider from "./context/CurrentTabContext";
 import FriendDetails from "./pages/FriendDetails";
+import TimeLineProvider from "./context/TimeLineContext";
+import { ToastContainer } from "react-toastify";
 
 const rounter = createBrowserRouter([
   {
@@ -30,15 +32,18 @@ const rounter = createBrowserRouter([
       {
         path: "/friend/:id",
         Component: FriendDetails,
-      }
+      },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <TabProvider>
-      <RouterProvider router={rounter}></RouterProvider>
-    </TabProvider>
+    <TimeLineProvider>
+      <TabProvider>
+        <RouterProvider router={rounter}></RouterProvider>
+      </TabProvider>
+    </TimeLineProvider>
+    <ToastContainer />
   </StrictMode>,
 );
