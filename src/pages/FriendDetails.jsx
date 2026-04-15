@@ -10,6 +10,7 @@ import { use, useContext } from "react";
 import { useParams } from "react-router";
 import StatusCard from "../components/unique/homeComponents/StatusCard";
 import { TimelineContext } from "../context/TimeLineContext";
+import { TabContext } from "../context/CurrentTabContext";
 import { toast } from "react-toastify";
 
 const friendsPromise = fetch("/friends.json").then((res) => res.json());
@@ -22,6 +23,8 @@ export default function FriendDetails() {
   const status = expectedFriend.status;
 
   const { currTimeLine, setCurrTimeLine } = useContext(TimelineContext);
+  const { setCurrTab } = useContext(TabContext);
+  setCurrTab("");
 
   const getFormattedDate = () => {
     const now = new Date();
@@ -73,11 +76,11 @@ export default function FriendDetails() {
           >
             {status.toUpperCase()}
           </div>
-          <div className="flex gap-2">
+          <div className="flex flex-row md:flex-col lg:flex-row gap-2 md:gap-0 lg:gap-2 items-center justify-center">
             {expectedFriend.tags.map((tag, index) => (
               <div
                 key={index}
-                className="badge bg-[#CBFADB] text-[#244D3F] rounded-full font-medium text-xs mt-2 mb-3"
+                className="badge bg-[#CBFADB] text-[#244D3F] rounded-full font-medium text-xs mt-2 mb-3 md:mb-0 lg:mb-3"
               >
                 {tag.toUpperCase()}
               </div>
