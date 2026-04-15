@@ -31,7 +31,7 @@ export default function TimeLine() {
 
   return (
     <div className="py-10 px-6 md:px-20 bg-[#F8FAFC] flex flex-col gap-4">
-      <div className="flex justify-between">
+      <div className="flex flex-col md:flex-row gap-2 justify-between">
         <h1 className="text-3xl md:text-5xl font-bold mb-6 text-[#1F2937]">
           Timeline
         </h1>
