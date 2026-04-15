@@ -1,9 +1,8 @@
-import { use, useContext } from "react";
+import { use, useContext, useEffect } from "react";
 import FriendsContainer from "../components/unique/homeComponents/FriendsContainer";
 import Hero from "../components/unique/homeComponents/Hero";
 import StatusContainer from "../components/unique/homeComponents/StatusContainer";
 import { TabContext } from "../context/CurrentTabContext";
-
 
 const friendsPromise = fetch("/friends.json").then((res) => res.json());
 
@@ -11,12 +10,14 @@ export default function HomePage() {
   const friends = use(friendsPromise);
   const { setCurrTab } = useContext(TabContext);
 
-  setCurrTab("home");
+  useEffect(() => {
+    setCurrTab("home");
+  }, []);
+
   let total = 0,
     ontrack = 0,
     attention = 0,
     thisMonth = 0;
-
   friends.forEach((friend) => {
     total++;
 

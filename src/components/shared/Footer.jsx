@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="footer footer-horizontal footer-center bg-[#244D3F] text-white py-20">
       <aside>
-        <img src={Logo} alt="KeenKeeper's Logo" className="w-50" md:w-full />
+        <img src={Logo} alt="KeenKeeper's Logo" className="w-50" />
         <p className="text-white/80 mt-4 max-w-sm md:max-w-lg">
           Your personal shelf of meaningful connections. Browse, tend, and
           nurture the relationships that matter most.

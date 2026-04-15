@@ -1,9 +1,68 @@
 import { useContext } from "react";
 import { TabContext } from "../context/CurrentTabContext";
+import { Pie, PieChart, Tooltip } from "recharts";
+import { TimelineContext } from "../context/TimeLineContext";
+import { useEffect } from "react";
 
 export default function Status() {
   const { setCurrTab } = useContext(TabContext);
+  const { currTimeLine } = useContext(TimelineContext);
 
-  setCurrTab("stats");
-  return <p>Hello World from Status!</p>;
+  useEffect(() => {
+    setCurrTab("stats");
+  }, []);
+
+  let call = 0, text = 0, video = 0;
+  currTimeLine.forEach((action) => {
+    if (action[0] === "Call") {
+      call++;
+    } else if (action[0] === "Video") {
+      video++;
+    } else if (action[0] === "Text") {
+      text++;
+    }
+  });
+
+  const data = [
+    { name: "Call", value: call, fill: "#244D3F" },
+    { name: "Text", value: text, fill: "#7E35E1" },
+    { name: "Video", value: video, fill: "#37A163" },
+  ];
+
+  return (
+    <div className="py-10 px-6 md:px-20 bg-[#F8FAFC] flex flex-col gap-4">
+      <h1 className="text-3xl md:text-5xl font-bold mb-6 text-[#1F2937]">
+        Friendship Analytics
+      </h1>
+      <div className="bg-white p-8 rounded-md">
+        <p className="font-medium text-xl text-[#244D3F] mb-6">
+          By Interaction Type
+        </p>
+        <div className="flex items-center justify-center">
+          <PieChart
+            style={{
+              width: "100%",
+              maxWidth: "357px",
+              maxHeight: "252px",
+              aspectRatio: 1,
+            }}
+          >
+            <Pie
+              data={data}
+              innerRadius="60%"
+              outerRadius="100%"
+              cornerRadius="10%"
+              paddingAngle={6}
+              dataKey="value"
+              isAnimationActive={true}
+            />
+            <Tooltip />
+          </PieChart>
+        </div>
+        <p className="text-center mt-6 text-[#244D3F] text-sm">
+          Text Call Video
+        </p>
+      </div>
+    </div>
+  );
 }

@@ -6,9 +6,8 @@ import {
   MessageSquareMore,
   Video,
 } from "lucide-react";
-import { use, useContext } from "react";
+import { use, useContext, useEffect } from "react";
 import { useParams } from "react-router";
-import StatusCard from "../components/unique/homeComponents/StatusCard";
 import { TimelineContext } from "../context/TimeLineContext";
 import { TabContext } from "../context/CurrentTabContext";
 import { toast } from "react-toastify";
@@ -24,7 +23,9 @@ export default function FriendDetails() {
 
   const { currTimeLine, setCurrTimeLine } = useContext(TimelineContext);
   const { setCurrTab } = useContext(TabContext);
-  setCurrTab("");
+  useEffect(() => {
+    setCurrTab("");
+  }, []);
 
   const getFormattedDate = () => {
     const now = new Date();
@@ -111,7 +112,9 @@ export default function FriendDetails() {
             <h2 className="text-[#244D3F] font-semibold text-lg lg:text-[22px]">
               {expectedFriend.days_since_contact}
             </h2>
-            <p className="text-[#64748B] text-sm lg:text-lg">Days Since Contact</p>
+            <p className="text-[#64748B] text-sm lg:text-lg">
+              Days Since Contact
+            </p>
           </div>
           <div className="bg-white p-4 flex flex-col items-center justify-center rounded-lg gap-2 text-center">
             <h2 className="text-[#244D3F] font-semibold text-lg lg:text-[22px]">
