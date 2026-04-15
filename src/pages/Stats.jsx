@@ -3,6 +3,7 @@ import { TabContext } from "../context/CurrentTabContext";
 import { Pie, PieChart, Tooltip } from "recharts";
 import { TimelineContext } from "../context/TimeLineContext";
 import { useEffect } from "react";
+import { CircleX } from "lucide-react";
 
 export default function Status() {
   const { setCurrTab } = useContext(TabContext);
@@ -12,7 +13,9 @@ export default function Status() {
     setCurrTab("stats");
   }, []);
 
-  let call = 0, text = 0, video = 0;
+  let call = 0,
+    text = 0,
+    video = 0;
   currTimeLine.forEach((action) => {
     if (action[0] === "Call") {
       call++;
@@ -38,27 +41,42 @@ export default function Status() {
         <p className="font-medium text-xl text-[#244D3F] mb-6">
           By Interaction Type
         </p>
-        <div className="flex items-center justify-center">
-          <PieChart
-            style={{
-              width: "100%",
-              maxWidth: "357px",
-              maxHeight: "252px",
-              aspectRatio: 1,
-            }}
-          >
-            <Pie
-              data={data}
-              innerRadius="60%"
-              outerRadius="100%"
-              cornerRadius="10%"
-              paddingAngle={6}
-              dataKey="value"
-              isAnimationActive={true}
-            />
-            <Tooltip />
-          </PieChart>
-        </div>
+        {call === 0 && video === 0 && text === 0 ? (
+          <div className="hero bg-white p-10 rounded-md">
+            <div className="hero-content text-center flex flex-col gap-4">
+              <CircleX />
+              <h1 className="text-3xl font-bold text-[#1F2937]">
+                No Stats Yet
+              </h1>
+              <p className="text-[#64748B] max-w-xl">
+                Interact with friends more to create memories
+              </p>
+            </div>
+          </div>
+        ) : (
+          <div className="flex items-center justify-center">
+            <PieChart
+              style={{
+                width: "100%",
+                maxWidth: "357px",
+                maxHeight: "252px",
+                aspectRatio: 1,
+              }}
+            >
+              <Pie
+                data={data}
+                innerRadius="60%"
+                outerRadius="100%"
+                cornerRadius="10%"
+                paddingAngle={6}
+                dataKey="value"
+                isAnimationActive={true}
+              />
+              <Tooltip />
+            </PieChart>
+          </div>
+        )}
+
         <p className="text-center mt-6 text-[#244D3F] text-sm">
           Text Call Video
         </p>
