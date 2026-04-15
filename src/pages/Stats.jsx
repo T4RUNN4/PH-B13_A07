@@ -87,7 +87,7 @@ export default function Status() {
             Video
           </span>
           <span className="flex items-center gap-2 text-[#244D3F] text-sm">
-            <span className="w-3 h-3 rounded-full bg-[#7E35E1]"></span>
+            <span className="w-3 h-3 rounded-full bg-[#244D3F]"></span>
             Call
           </span>
         </div>
